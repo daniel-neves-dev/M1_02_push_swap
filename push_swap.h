@@ -3,8 +3,12 @@
 
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
+# include <stdlib.h>
 
-void	sa(t_list **stack_a);
-void	pb(t_list **stack_a, t_list **stack_b);
+typedef	struct s_list
+{
+	int	value;
+	struct s_list *next;
+} t_list;
 
 #endif
