@@ -9,4 +9,8 @@ add_library(push_swap STATIC
         push_swap.h
         op_swap.c
         op_swap.c
-        op_swap.c)
+        op_swap.c
+        op_rotation.c
+        libft/ft_lstlast.c
+        libft/ft_lstadd_back.c
+        libft/ft_lstadd_front.c)

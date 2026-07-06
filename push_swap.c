@@ -85,6 +85,7 @@ int main(int argc, char **argv)
 	return (0);
 }
 */
+
 static t_list *new_node(int value)
 {
 	t_list *node;
@@ -131,34 +132,49 @@ int	main(void)
 	a = NULL;
 	b = NULL;
 
-	add_back(&a, new_node(1));
 	add_back(&a, new_node(2));
+	add_back(&a, new_node(1));
 	add_back(&a, new_node(3));
 
-	add_back(&b, new_node(4));
-	add_back(&b, new_node(5));
-	add_back(&b, new_node(6));
+	add_back(&a, new_node(6));
+	add_back(&a, new_node(5));
+	add_back(&a, new_node(8));
 
 	print_stack("A", a);
 	print_stack("B", b);
+	ft_printf("\n");
 
 	sa(&a);
 	print_stack("A", a);
+	ft_printf("\n");
+
+	int	j = 0;
+	while (j < 3)
+	{
+		pb(&a, &b);
+		print_stack("A", a);
+		print_stack("B", b);
+		ft_printf("\n");
+		j++;
+	}
+
+	ra(&a);
+	print_stack("A", a);
+	ft_printf("\n");
 
 	sb(&b);
 	print_stack("B", b);
+	ft_printf("\n");
 
 	pa(&a, &b);
 	print_stack("A", a);
 	print_stack("B", b);
-
-	pb(&a, &b);
-	print_stack("A", a);
-	print_stack("B", b);
+	ft_printf("\n");
 
 	ss(&a, &b);
 	print_stack("A", a);
 	print_stack("B", b);
+	ft_printf("\n");
 
 	ft_lstclear(&a, NULL);
 	ft_lstclear(&b, NULL);

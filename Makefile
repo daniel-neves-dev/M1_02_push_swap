@@ -1,5 +1,5 @@
 NAME        = push_swap
-SRCS        = push_swap.c op_swap.c
+SRCS        = push_swap.c op_swap.c op_rotation.c
 
 LIBFT_DIR   = ./libft
 PRINTF_DIR  = ./printf
@@ -26,7 +26,7 @@ $(NAME): $(OBJS)
 	#DELETAR AO FIM DO PROJETO
 	#######################
 	gcc *.c -L./libft -L./printf -lft -lftprintf -o push_swap
-	./push_swap 2 1 3 6 5 8
+	./push_swap
 	#######################
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
