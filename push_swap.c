@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	print_list(t_list *stack_a, t_list *stack_b)
+/*void	print_list(t_list *stack_a, t_list *stack_b)
 {
 	ft_printf("  a   b\n");
 	ft_printf("----------\n");
@@ -82,5 +82,86 @@ int main(int argc, char **argv)
 
 	ft_lstclear(&stack_a, free_numb);
 	ft_lstclear(&stack_b, free_numb);
+	return (0);
+}
+*/
+static t_list *new_node(int value)
+{
+	t_list *node;
+
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = (void *)(long)value;
+	node->next = NULL;
+	return (node);
+}
+
+static void	add_back(t_list **lst, t_list *new)
+{
+	t_list *tmp;
+
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	tmp = *lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+}
+
+static void	print_stack(char *name, t_list *stack)
+{
+	ft_printf("%s: ", name);
+	while (stack)
+	{
+		ft_printf("%d ", (int)(long)stack->content);
+		stack = stack->next;
+	}
+	ft_printf("\n");
+}
+
+int	main(void)
+{
+	t_list	*a;
+	t_list	*b;
+
+	a = NULL;
+	b = NULL;
+
+	add_back(&a, new_node(1));
+	add_back(&a, new_node(2));
+	add_back(&a, new_node(3));
+
+	add_back(&b, new_node(4));
+	add_back(&b, new_node(5));
+	add_back(&b, new_node(6));
+
+	print_stack("A", a);
+	print_stack("B", b);
+
+	sa(&a);
+	print_stack("A", a);
+
+	sb(&b);
+	print_stack("B", b);
+
+	pa(&a, &b);
+	print_stack("A", a);
+	print_stack("B", b);
+
+	pb(&a, &b);
+	print_stack("A", a);
+	print_stack("B", b);
+
+	ss(&a, &b);
+	print_stack("A", a);
+	print_stack("B", b);
+
+	ft_lstclear(&a, NULL);
+	ft_lstclear(&b, NULL);
+
 	return (0);
 }
