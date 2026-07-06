@@ -57,9 +57,26 @@ void    sb(t_list **stack_b)
 	ft_printf("sb\n");
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void    ss(t_list **stack_a, t_list **stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	t_list *first;
+	t_list *second;
+
+	if (stack_a && *stack_a && (*stack_a)->next)
+	{
+		first = *stack_a;
+		second = first->next;
+		first->next = second->next;
+		second->next = first;
+		*stack_a = second;
+	}
+	if (stack_b && *stack_b && (*stack_b)->next)
+	{
+		first = *stack_b;
+		second = first->next;
+		first->next = second->next;
+		second->next = first;
+		*stack_b = second;
+	}
 	ft_printf("ss\n");
 }
