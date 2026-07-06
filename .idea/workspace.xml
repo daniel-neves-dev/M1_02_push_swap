@@ -23,7 +23,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51a0c9b-197b-434e-9b38-d206c6d40e43" name="Changes" comment="feat: added sa and pb functions" />
+    <list default="true" id="b51a0c9b-197b-434e-9b38-d206c6d40e43" name="Changes" comment="feat: added sa and pb functions">
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/push_swap.c" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +96,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
@@ -132,8 +137,8 @@
     <list>
       <item itemvalue="Native Application.all" />
       <item itemvalue="Native Application.fclean" />
-      <item itemvalue="Native Application.push_swap" />
       <item itemvalue="Native Application.re" />
+      <item itemvalue="Native Application.push_swap" />
     </list>
   </component>
   <component name="TaskManager">
@@ -146,6 +151,8 @@
       <workItem from="1783169360397" duration="229000" />
       <workItem from="1783174891307" duration="8653000" />
       <workItem from="1783187589839" duration="1609000" />
+      <workItem from="1783189985042" duration="510000" />
+      <workItem from="1783348039401" duration="472000" />
     </task>
     <servers />
   </component>

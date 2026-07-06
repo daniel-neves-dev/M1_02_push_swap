@@ -79,6 +79,7 @@ int main(int argc, char **argv)
 		print_list(stack_a, stack_b);
 		t++;
 	}
+
 	ft_lstclear(&stack_a, free_numb);
 	ft_lstclear(&stack_b, free_numb);
 	return (0);
