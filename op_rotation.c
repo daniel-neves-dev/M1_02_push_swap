@@ -7,17 +7,13 @@ void	ra(t_list **stack_a)
 
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
-
 	first = *stack_a;
 	*stack_a = first->next;
-	first->prev = NULL;
-
+	first->next = NULL;
 	last = *stack_a;
-	while (last->next != NULL)
+	while (last->next)
 		last = last->next;
 	last->next = first;
-	first->next = NULL;
-
 	ft_printf("ra\n");
 }
 

@@ -180,6 +180,30 @@ int	main(void)
 	print_stack("B", b);
 	ft_printf("\n");
 
+	ft_printf("Testing rb:\n");
+	rb(&b);
+	print_stack("A", a);
+	print_stack("B", b);
+	ft_printf("\n");
+
+	ft_printf("Testing rr:\n");
+	rr(&a, &b);
+	print_stack("A", a);
+	print_stack("B", b);
+	ft_printf("\n");
+
+	ft_printf("Testing rrb:\n");
+	rrb(&b);
+	print_stack("A", a);
+	print_stack("B", b);
+	ft_printf("\n");
+
+	ft_printf("Testing rrr:\n");
+	rrr(&a, &b);
+	print_stack("A", a);
+	print_stack("B", b);
+	ft_printf("\n");
+
 	ft_lstclear(&a, NULL);
 	ft_lstclear(&b, NULL);
 
