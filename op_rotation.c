@@ -1,12 +1,12 @@
 #include "push_swap.h"
 
-void    ra(t_list **stack_a)
+void	ra(t_list **stack_a)
 {
-	t_list  *first;
-	t_list  *last;
+	t_list	*first;
+	t_list	*last;
 
-	if (!stack_a || !*stack_a)
-		return;
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return ;
 
 	first = *stack_a;
 	*stack_a = first->next;
@@ -21,10 +21,10 @@ void    ra(t_list **stack_a)
 	ft_printf("ra\n");
 }
 
-void    rb(t_list **stack_b)
+void	rb(t_list **stack_b)
 {
-	t_list  *first;
-	t_list  *last;
+	t_list	*first;
+	t_list	*last;
 
 	if (!stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
@@ -38,10 +38,10 @@ void    rb(t_list **stack_b)
 	ft_printf("rb\n");
 }
 
-void    rr(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	t_list  *first;
-	t_list  *last;
+	t_list	*first;
+	t_list	*last;
 
 	if (stack_a && *stack_a && (*stack_a)->next)
 	{
@@ -65,3 +65,4 @@ void    rr(t_list **stack_a, t_list **stack_b)
 	}
 	ft_printf("rr\n");
 }
+

@@ -1,5 +1,5 @@
 NAME        = push_swap
-SRCS        = push_swap.c op_swap.c op_rotation.c
+SRCS        = push_swap.c op_swap.c op_rotation.c op_reverse_rotation.c
 
 LIBFT_DIR   = ./libft
 PRINTF_DIR  = ./printf

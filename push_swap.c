@@ -86,9 +86,9 @@ int main(int argc, char **argv)
 }
 */
 
-static t_list *new_node(int value)
+static	t_list *new_node(int value)
 {
-	t_list *node;
+	t_list	*node;
 
 	node = malloc(sizeof(t_list));
 	if (!node)
@@ -100,7 +100,7 @@ static t_list *new_node(int value)
 
 static void	add_back(t_list **lst, t_list *new)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!*lst)
 	{
@@ -123,7 +123,6 @@ static void	print_stack(char *name, t_list *stack)
 	}
 	ft_printf("\n");
 }
-
 int	main(void)
 {
 	t_list	*a;
@@ -148,6 +147,10 @@ int	main(void)
 	print_stack("A", a);
 	ft_printf("\n");
 
+	rra(&a);
+	print_stack("A", a);
+	ft_printf("\n");
+
 	int	j = 0;
 	while (j < 3)
 	{
@@ -161,6 +164,7 @@ int	main(void)
 	ra(&a);
 	print_stack("A", a);
 	ft_printf("\n");
+
 
 	sb(&b);
 	print_stack("B", b);
