@@ -22,6 +22,7 @@ typedef struct s_list
 	int				index;
 	struct s_list	*next;
 	struct s_list	*prev;
+	int				value;
 }	t_list;
 
 int		ft_isalpha(int c);

@@ -2,23 +2,24 @@
 
 void	rra(t_list **stack_a)
 {
-	t_list	*first;
+	t_list	*prev;
 	t_list	*last;
-	t_list	*penultimete;
 
-	first = *stack_a;
-	first->prev = NULL;
-	last = ft_lstlast(*stack_a);
-	while (first->next != NULL)
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return ;
+	prev = NULL;
+	last = *stack_a;
+	while (last->next)
 	{
-		penultimete = first;
-		first = first->next;
+		prev = last;
+		last = last->next;
 	}
-	penultimete->next = NULL;
-	first->next = *stack_a;
+	prev->next = NULL;
+	last->next = *stack_a;
 	*stack_a = last;
 	ft_printf("rra\n");
 }
+
 void	rrb(t_list **stack_b)
 {
 	t_list	*prev;
