@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long long ft_atoi(const char *nptr)
 {
 	int		signal;
-	long	result;
+	long long result;
 
 	signal = 1;
 	result = 0;
@@ -36,5 +36,5 @@ int	ft_atoi(const char *nptr)
 		result = (result * 10) + (*nptr - '0');
 		nptr++;
 	}
-	return ((int)(result * signal));
+	return (result * signal);
 }

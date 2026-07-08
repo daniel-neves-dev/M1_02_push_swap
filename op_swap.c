@@ -1,11 +1,11 @@
 #include "push_swap.h"
 
-void    pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
-	t_list  *first;
+	t_list	*first;
 
 	if (!stack_b || !*stack_b)
-		return;
+		return ;
 	first = *stack_b;
 	*stack_b = first->next;
 	first->next = *stack_a;
@@ -19,7 +19,6 @@ void	pb(t_list **stack_a, t_list **stack_b)
 
 	if (!stack_a || !*stack_a)
 		return ;
-
 	first = *stack_a;
 	*stack_a = first->next;
 	first->next = *stack_b;
@@ -27,13 +26,13 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	ft_printf("pb\n");
 }
 
-void    sa(t_list **stack_a)
+void	sa(t_list **stack_a)
 {
-	t_list  *first;
-	t_list  *second;
+	t_list	*first;
+	t_list	*second;
 
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
-		return;
+		return ;
 	first = *stack_a;
 	second = first->next;
 	first->next = second->next;
@@ -42,13 +41,13 @@ void    sa(t_list **stack_a)
 	ft_printf("sa\n");
 }
 
-void    sb(t_list **stack_b)
+void	sb(t_list **stack_b)
 {
-	t_list  *first;
-	t_list  *second;
+	t_list	*first;
+	t_list	*second;
 
 	if (!stack_b || !*stack_b || !(*stack_b)->next)
-		return;
+		return ;
 	first = *stack_b;
 	second = first->next;
 	first->next = second->next;
@@ -57,10 +56,10 @@ void    sb(t_list **stack_b)
 	ft_printf("sb\n");
 }
 
-void    ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
-	t_list *first;
-	t_list *second;
+	t_list	*first;
+	t_list	*second;
 
 	if (stack_a && *stack_a && (*stack_a)->next)
 	{
@@ -80,3 +79,4 @@ void    ss(t_list **stack_a, t_list **stack_b)
 	}
 	ft_printf("ss\n");
 }
+
