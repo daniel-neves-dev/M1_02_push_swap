@@ -1,52 +1,54 @@
 #include "push_swap.h"
 
-void	push_to_b(t_list **stack_a, t_list **stack_b, int chunk)
+void	quick_push_to_b(t_list **stack_a, t_list **stack_b)
 {
-	int	i;
-	int	size;
+	int	min;
 
-	size = stack_size(*stack_a);
-	i = -1;
-	while (++i < size - 3)
+	while (stack_size(*stack_a) > 3)
 	{
-		if ((*stack_a)->value <= i + chunk)
-			pb(stack_a, stack_b);
-		else if ((*stack_a)->value <= i + chunk * 2)
+		min = find_min(*stack_a);
+		if (get_index(*stack_a, min) <= stack_size(*stack_a) / 2)
 		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
+			while (*(int *)(*stack_a)->content != min)
+				ra(stack_a);
 		}
 		else
-			ra(stack_a);
+		{
+			while (*(int *)(*stack_a)->content != min)
+				rra(stack_a);
+		}
+		pb(stack_a, stack_b);
 	}
 }
 
 void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 {
+	int	max;
+	int	index;
+	int	size;
+
 	while (*stack_b)
 	{
+		max = find_max(*stack_b);
+		index = get_index(*stack_b, max);
+		size = stack_size(*stack_b);
+		if (index <= size / 2)
+		{
+			while (*(int *)(*stack_b)->content != max)
+				rb(stack_b);
+		}
+		else
+		{
+			while (*(int *)(*stack_b)->content != max)
+				rrb(stack_b);
+		}
 		pa(stack_a, stack_b);
-		if (*stack_a && (*stack_a)->next
-			&& (*stack_a)->value > (*stack_a)->next->value)
-			sa(stack_a);
 	}
-}
-
-void	final_rotate(t_list **stack_a)
-{
-	while ((*stack_a)->value != find_min(*stack_a))
-		ra(stack_a);
 }
 
 void	sort_big(t_list **stack_a, t_list **stack_b)
 {
-	int	chunk;
-
-	chunk = stack_size(*stack_a) / 5;
-	if (chunk < 10)
-		chunk = 10;
-	push_to_b(stack_a, stack_b, chunk);
+	quick_push_to_b(stack_a, stack_b);
 	sort_three(stack_a);
 	push_back_to_a(stack_a, stack_b);
-	final_rotate(stack_a);
 }

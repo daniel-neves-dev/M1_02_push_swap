@@ -28,10 +28,12 @@ int		find_min(t_list *stack);
 int		find_max(t_list *stack);
 int		get_index(t_list *stack, int value);
 int		is_sorted(t_list *stack);
+void	sort_two(t_list **stack_a);
 void	sort_three(t_list **stack_a);
 void	sort_five(t_list **stack_a, t_list **stack_b);
 void	sort_big(t_list **stack_a, t_list **stack_b);
 void	move_min_to_b(t_list **stack_a, t_list **stack_b);
-void	sort_big(t_list **stack_a, t_list **stack_b);
+
+void	push_swap(t_list **stack_a, t_list **stack_b);
 
 #endif

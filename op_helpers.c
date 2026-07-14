@@ -11,11 +11,11 @@ int	find_min(t_list *stack)
 
 	if (!stack)
 		return (0);
-	min = stack->value;
+	min = *(int* )stack->content;
 	while (stack)
 	{
-		if (stack->value < min)
-			min = stack->value;
+		if (*(int* )stack->content < min)
+			min = *(int* )stack->content;
 		stack = stack->next;
 	}
 	return (min);
@@ -27,11 +27,11 @@ int	find_max(t_list *stack)
 
 	if (!stack)
 		return (0);
-	max = stack->value;
+	max = *(int* )stack->content;
 	while (stack)
 	{
-		if (stack->value > max)
-			max = stack->value;
+		if (*(int* )stack->content > max)
+			max = *(int* )stack->content;
 		stack = stack->next;
 	}
 	return (max);
@@ -44,7 +44,7 @@ int	get_index(t_list *stack, int value)
 	index = 0;
 	while (stack)
 	{
-		if (stack->value == value)
+		if (*(int* )stack->content == value)
 			return (index);
 		stack = stack->next;
 		index++;
@@ -63,12 +63,12 @@ void	move_min_to_b(t_list **stack_a, t_list **stack_b)
 	size = stack_size(*stack_a);
 	if (index <= size / 2)
 	{
-		while ((*stack_a)->value != min)
+		while (*(int* )(*stack_a)->content != min)
 			ra(stack_a);
 	}
 	else
 	{
-		while ((*stack_a)->value != min)
+		while (*(int* )(*stack_a)->content != min)
 			rra(stack_a);
 	}
 	pb(stack_a, stack_b);

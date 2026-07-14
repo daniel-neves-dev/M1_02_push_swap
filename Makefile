@@ -1,5 +1,6 @@
 NAME        = push_swap
-SRCS        = push_swap.c op_swap.c op_rotation.c op_reverse_rotation.c
+SRCS        = push_swap.c op_swap.c op_rotation.c op_reverse_rotation.c \
+			op_helpers.c op_sorting_big.c op_utils.c op_sorting.c
 
 LIBFT_DIR   = ./libft
 PRINTF_DIR  = ./printf
@@ -12,7 +13,7 @@ RM          = rm -f
 
 OBJS        = $(SRCS:.c=.o)
 
-all: $(LIBFT) $(PRINTF) $(NAME)
+all: $(NAME)
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
@@ -20,15 +21,10 @@ $(LIBFT):
 $(PRINTF):
 	@make -C $(PRINTF_DIR)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
-	#DELETAR AO FIM DO PROJETO
-	#######################
-	gcc *.c -L./libft -L./printf -lft -lftprintf -o push_swap
-
-	#######################
-%.o: %.c
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

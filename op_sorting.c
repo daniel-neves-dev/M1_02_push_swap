@@ -12,11 +12,22 @@ int	is_sorted(t_list *stack)
 {
 	while (stack && stack->next)
 	{
-		if (stack->value > stack->next->value)
+		if (*(int *)stack->content > *(int *)stack->next->content)
 			return (0);
 		stack = stack->next;
 	}
 	return (1);
+}
+
+void	sort_two(t_list **stack_a)
+{
+	int	a;
+	int	b;
+
+	a = *(int* )(*stack_a)->content;
+	b = *(int* )(*stack_a)->next->content;
+	if (a > b)
+		sa(stack_a);
 }
 
 void	sort_three(t_list **stack_a)
@@ -25,9 +36,9 @@ void	sort_three(t_list **stack_a)
 	int	b;
 	int	c;
 
-	a = (*stack_a)->value;
-	b = (*stack_a)->next->value;
-	c = (*stack_a)->next->next->value;
+	a = *(int* )(*stack_a)->content;
+	b = *(int* )(*stack_a)->next->content;
+	c = *(int* )(*stack_a)->next->next->content;
 	if (a > b && b < c && a < c)
 		sa(stack_a);
 	else if (a > b && b > c)
@@ -36,7 +47,7 @@ void	sort_three(t_list **stack_a)
 		rra(stack_a);
 	}
 	else if (a > b && b < c && a > c)
-		sa(stack_a);
+		ra(stack_a);
 	else if (a < b && b > c && a < c)
 	{
 		sa(stack_a);
@@ -59,8 +70,15 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 
+	if (!(stack_a || *stack_a || (*stack_a)->next))
+		return ;
+	if (is_sorted(*stack_a))
+		return ;
+
 	size = stack_size(*stack_a);
-	if (size <= 3)
+	if (size == 2)
+		sort_two(stack_a);
+	else if (size == 3)
 		sort_three(stack_a);
 	else if (size <= 5)
 		sort_five(stack_a, stack_b);
