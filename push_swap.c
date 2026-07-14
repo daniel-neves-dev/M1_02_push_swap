@@ -26,9 +26,6 @@ static int	valid_arg(char *arg)
 {
 	long long	n;
 
-	n = ft_atoi(arg);
-	if (n < INT_MIN || n > INT_MAX)
-		return (0);
 	if (*arg == '-' || *arg == '+')
 		arg++;
 	if (*arg == '\0')
@@ -39,6 +36,9 @@ static int	valid_arg(char *arg)
 			return (0);
 		arg++;
 	}
+	n = ft_atoi(arg);
+	if (n < INT_MIN || n > INT_MAX)
+		return (0);
 	return (1);
 }
 
@@ -81,19 +81,13 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (fill_stack(&stack_a, argc, argv) == 0)
 	{
-		ft_putstr_fd("Error\n", 2);
-		ft_lstclear(&stack_a, NULL);
-		return (0);
+		print_error();
+		free_stack(&stack_a);
+		return (1);
 	}
 
-	////DELETAR
-	print_stack("A", stack_a);
-	print_stack("B", stack_b);
-	ft_printf("\n");
-	/////
-
-	ft_lstclear(&stack_a, NULL);
-	ft_lstclear(&stack_b, NULL);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
 

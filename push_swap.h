@@ -19,6 +19,7 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
+
 void	free_stack(t_list **stack);
 void	print_error(void);
 void	ft_putstr(char *str);
