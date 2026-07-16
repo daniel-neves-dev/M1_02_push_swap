@@ -46,6 +46,8 @@ Run push_swap by passing a list of integers as arguments:
 ./push_swap 2 1 3 6 5 8
 ```
 
+---
+
 ### Command Line Flags
 You can optionally force specific strategies or run the program in benchmark mode:
 * --simple: Forces the $O(n^2)$ algorithm.
@@ -60,12 +62,12 @@ You can optionally force specific strategies or run the program in benchmark mod
 
 1. Disorder Metric Calculation
 Before executing any sorting moves, the program calculates the disorder metric of stack a.
-The disorder $D$ is a normalized metric **(0 <= D <= 1)** defined by dividing the number of inversions (pairs where a larger number appears before a smaller one)
-by the total number of unique pairs:
+The disorder $D$ is a normalized metric ($0 \le D \le 1$) defined by dividing the number of inversions (pairs where a larger number appears before a smaller one)
+by the total number of unique pairs.
 
 2. Implemented Strategies
-* Simple Algorithm ****: Used for small inputs or baseline sorting. Implements a modified Selection Sort which finds the minimum element in stack a, pushes it to b, and repeats.
-* Medium Algorithm ****: Designed to divide the stack dynamically into $\sqrt{n}$ logical chunks/blocks. Elements belonging to the lowest-valued chunks are progressively pushed to stack b to limit search-rotation operations.
+* Simple Algorithm ($O(n^2)$):  Used for small inputs or baseline sorting. Implements a modified Selection Sort which finds the minimum element in stack a, pushes it to b, and repeats.
+* Medium Algorithm ($O(n\sqrt{n})$): Designed to divide the stack dynamically into $\sqrt{n}$ logical chunks/blocks. Elements belonging to the lowest-valued chunks are progressively pushed to stack b to limit search-rotation operations.
 * Complex Algorithm ($O(n\log n)$): Adaptation of a Radix Sort (LSD) or Quick Sort with stack partitioning to sort large datasets efficiently within standard recursion limits.
 
 ### Custom Adaptive Strategy: 
