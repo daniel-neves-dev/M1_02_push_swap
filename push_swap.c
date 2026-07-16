@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+/*
 static void	print_stack(char *name, t_list *stack)
 {
 	ft_printf("%s: ", name);
@@ -10,6 +10,7 @@ static void	print_stack(char *name, t_list *stack)
 	}
 	ft_printf("\n");
 }
+*/
 
 static int	duplicate_number(t_list *stack, long long n)
 {
@@ -86,7 +87,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	push_swap(&stack_a, &stack_b);
-	print_stack("A", stack_a);
+	//print_stack("A", stack_a);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

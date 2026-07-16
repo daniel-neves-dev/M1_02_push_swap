@@ -1,45 +1,71 @@
 #include "push_swap.h"
 
+//Calculo da largura perfeita (bloco/ckunk)
+static int	get_range(int size)
+{
+	if (size <= 100)
+		return (15);
+	return (35);
+}
+
 void	quick_push_to_b(t_list **stack_a, t_list **stack_b)
 {
-	int	min;
+	int	i;
+	int	range;
 
-	while (stack_size(*stack_a) > 3)
+	i = 0;
+	range = get_range(stack_size(*stack_a));
+	while (*stack_a)
 	{
-		min = find_min(*stack_a);
-		if (get_index(*stack_a, min) <= stack_size(*stack_a) / 2)
+		if ((*stack_a)->index <= i)
 		{
-			while (*(int *)(*stack_a)->content != min)
-				ra(stack_a);
+			pb(stack_a, stack_b);
+			rb(stack_b);
+			i++;
+		}
+		else if ((*stack_a)->index <= i + range)
+		{
+			pb(stack_a, stack_b);
+			i++;
 		}
 		else
 		{
-			while (*(int *)(*stack_a)->content != min)
-				rra(stack_a);
+			ra(stack_a);
 		}
-		pb(stack_a, stack_b);
 	}
 }
 
+static int	get_max_positio(t_list *stack, int max_index)
+{
+	int	position;
+
+	position = 0;
+	while (stack && stack->index != max_index)
+	{
+		position++;
+		stack = stack->next;
+	}
+	return(position);
+}
+
+//Volta de B para A buscando o maior numero.
 void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 {
-	int	max;
-	int	index;
+	int	position_max_index;
 	int	size;
 
 	while (*stack_b)
 	{
-		max = find_max(*stack_b);
-		index = get_index(*stack_b, max);
 		size = stack_size(*stack_b);
-		if (index <= size / 2)
+		position_max_index = get_max_positio(*stack_b, size - 1);
+		if (position_max_index <= size / 2) // Traz o valor ao topo (atalho)
 		{
-			while (*(int *)(*stack_b)->content != max)
+			while ((*stack_b)->index != (size - 1))
 				rb(stack_b);
 		}
 		else
 		{
-			while (*(int *)(*stack_b)->content != max)
+			while ((*stack_b)->index != (size - 1))
 				rrb(stack_b);
 		}
 		pa(stack_a, stack_b);
@@ -48,7 +74,7 @@ void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 
 void	sort_big(t_list **stack_a, t_list **stack_b)
 {
+	index_stack(*stack_a);
 	quick_push_to_b(stack_a, stack_b);
-	sort_three(stack_a);
 	push_back_to_a(stack_a, stack_b);
 }

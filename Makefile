@@ -1,6 +1,6 @@
 NAME        = push_swap
 SRCS        = push_swap.c op_swap.c op_rotation.c op_reverse_rotation.c \
-			op_helpers.c op_sorting_big.c op_utils.c op_sorting.c
+			op_helpers.c op_sorting_big.c op_utils.c op_sorting.c op_indexing.c
 
 LIBFT_DIR   = ./libft
 PRINTF_DIR  = ./printf

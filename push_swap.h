@@ -33,6 +33,7 @@ void	sort_three(t_list **stack_a);
 void	sort_five(t_list **stack_a, t_list **stack_b);
 void	sort_big(t_list **stack_a, t_list **stack_b);
 void	move_min_to_b(t_list **stack_a, t_list **stack_b);
+void	index_stack(t_list *stack_a);
 
 void	push_swap(t_list **stack_a, t_list **stack_b);
 
