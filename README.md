@@ -56,7 +56,7 @@ You can optionally force specific strategies or run the program in benchmark mod
 * --adaptive: (Default) Selects the optimal algorithm automatically based on the measured disorder.
 * --bench: Outputs detailed execution statistics (disorder %, selected strategy, and operation counts) to stderr.
 
-./push_swap --bench 4 67 3 87 23
+./push_swap --simple 4 67 3 87 23
 
 ### Algorithms & Technical Choices
 
