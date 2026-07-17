@@ -21,12 +21,7 @@ int	is_sorted(t_list *stack)
 
 void	sort_two(t_list **stack_a)
 {
-	int	a;
-	int	b;
-
-	a = *(int* )(*stack_a)->content;
-	b = *(int* )(*stack_a)->next->content;
-	if (a > b)
+	if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
 		sa(stack_a);
 }
 
@@ -36,9 +31,9 @@ void	sort_three(t_list **stack_a)
 	int	b;
 	int	c;
 
-	a = *(int* )(*stack_a)->content;
-	b = *(int* )(*stack_a)->next->content;
-	c = *(int* )(*stack_a)->next->next->content;
+	a = *(int *)(*stack_a)->content;
+	b = *(int *)(*stack_a)->next->content;
+	c = *(int *)(*stack_a)->next->next->content;
 	if (a > b && b < c && a < c)
 		sa(stack_a);
 	else if (a > b && b > c)
@@ -66,14 +61,9 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 		pa(stack_a, stack_b);
 }
 
-void	push_swap(t_list **stack_a, t_list **stack_b)
+void	sort_simple(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
-
-	if (!(stack_a || *stack_a || (*stack_a)->next))
-		return ;
-	if (is_sorted(*stack_a))
-		return ;
 
 	size = stack_size(*stack_a);
 	if (size == 2)
@@ -82,6 +72,13 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		sort_three(stack_a);
 	else if (size <= 5)
 		sort_five(stack_a, stack_b);
-	else
-		sort_big(stack_a, stack_b);
+}
+
+void	push_swap(t_list **stack_a, t_list **stack_b, t_params *params)
+{
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return ;
+	if (is_sorted(*stack_a))
+		return ;
+	execution_flags(stack_a, stack_b, params);
 }

@@ -1,5 +1,5 @@
 #include "push_swap.h"
-/*
+
 static void	print_stack(char *name, t_list *stack)
 {
 	ft_printf("%s: ", name);
@@ -10,7 +10,7 @@ static void	print_stack(char *name, t_list *stack)
 	}
 	ft_printf("\n");
 }
-*/
+
 
 static int	duplicate_number(t_list *stack, long long n)
 {
@@ -43,13 +43,13 @@ static int	valid_arg(char *arg)
 	return (1);
 }
 
-static int	fill_stack(t_list **stack_a, int argc, char **argv)
+static int	fill_stack(t_list **stack_a, int argc, char **argv, int arg_start)
 {
 	t_list		*new_node;
 	long long	*numbers;
 	int			i;
 
-	i = 1;
+	i = arg_start;
 	while (i < argc)
 	{
 		if (valid_arg(argv[i]) == 0 ||
@@ -75,19 +75,22 @@ int	main(int argc, char **argv)
 {
 	t_list		*stack_a;
 	t_list		*stack_b;
+	t_params	params;
+	int			arg_start;
 
 	if (argc < 2)
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
-	if (fill_stack(&stack_a, argc, argv) == 0)
+	arg_start = parse_flags(argc, argv, &params);
+	if (fill_stack(&stack_a, argc, argv, arg_start) == 0)
 	{
 		print_error();
 		free_stack(&stack_a);
 		return (1);
 	}
-	push_swap(&stack_a, &stack_b);
-	//print_stack("A", stack_a);
+	push_swap(&stack_a, &stack_b, &params);
+	print_stack("A", stack_a);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

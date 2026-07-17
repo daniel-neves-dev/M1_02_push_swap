@@ -4,7 +4,21 @@
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
 # include <stdlib.h>
-#include <limits.h>
+# include <limits.h>
+
+typedef enum e_flagtype
+{
+	STRAT_NONE,
+	STRAT_SIMPLE,
+}	t_flagtype;
+
+typedef struct s_params
+{
+	t_flagtype	flagtype;
+	int			bench_mode; // ativa e desativa 1 e 0
+	double		disorder;
+}	t_params;
+
 
 void	sa(t_list **stack_a);
 void	sb(t_list **stack_b);
@@ -35,6 +49,10 @@ void	sort_big(t_list **stack_a, t_list **stack_b);
 void	move_min_to_b(t_list **stack_a, t_list **stack_b);
 void	index_stack(t_list *stack_a);
 
-void	push_swap(t_list **stack_a, t_list **stack_b);
+int		parse_flags(int argc, char **argv, t_params *params);
+void	execution_flags(t_list **stack_a, t_list **stack_b, t_params *params);
+void	sort_simple(t_list **stack_a, t_list **stack_b);
+
+void	push_swap(t_list **stack_a, t_list **stack_b, t_params *params);
 
 #endif
