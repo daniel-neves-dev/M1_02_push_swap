@@ -4,6 +4,8 @@ static int	get_flag(char *arg)
 {
 	if (ft_strncmp(arg, "--simple", ft_strlen(arg)) == 0)
 		return(STRAT_SIMPLE);
+	else if (ft_strncmp(arg, "--medium", ft_strlen(arg)) == 0)
+		return(STRAT_MEDIUM);
 	return (0);
 }
 

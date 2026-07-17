@@ -10,6 +10,7 @@ typedef enum e_flagtype
 {
 	STRAT_NONE,
 	STRAT_SIMPLE,
+	STRAT_MEDIUM,
 }	t_flagtype;
 
 typedef struct s_params
