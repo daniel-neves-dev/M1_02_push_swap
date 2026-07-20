@@ -1,55 +1,43 @@
 #include "push_swap.h"
 
-static int	get_flag(char *arg)
+void	init_flags(t_flags *flags)
 {
-	if (ft_strncmp(arg, "--simple", ft_strlen(arg)) == 0)
-		return(STRAT_SIMPLE);
-	else if (ft_strncmp(arg, "--medium", ft_strlen(arg)) == 0)
-		return(STRAT_MEDIUM);
-	return (0);
+	flags->flagtype = STRAT_ADAPTIVE;
+	flags->bench_mode = 0;
 }
-
-int	parse_flags(int argc, char **argv, t_params *params)
+int	parse_flags(int argc, char **argv, t_flags *flags)
 {
 	int	i;
-	int	strat;
 
-	params->flagtype = STRAT_NONE;
-	params->bench_mode = 0;
-	params->disorder = 0.0;
+	init_flags(flags); // se nao tiver '-' vai direto para o return i
 	i = 1;
-	while (i < argc)
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		if (argv[i][0] == '-' && argv[i][1] == '-')
-		{
-			if (ft_strncmp(argv[i], "--bench", ft_strlen(argv[i])) == 0)
-				params->bench_mode = 1;
-			else
-			{
-				strat = get_flag(argv[i]);
-				if (strat != STRAT_NONE)
-					params->flagtype = strat;
-			}
-			i++;
-		}
+		if (ft_strncmp(argv[i], "--simple", sizeof(argv[i])) == 0)
+			flags->flagtype = STRAT_SIMPLE;
+		else if (ft_strncmp(argv[i], "--medium", sizeof(argv[i])) == 0)
+			flags->flagtype = STRAT_MEDIUM;
+		else if (ft_strncmp(argv[i], "--complex", sizeof(argv[i])) == 0)
+			flags->flagtype = STRAT_COMPLEX;
 		else
-		{
-			break ;
-		}
+			return (0);
+		i++;
 	}
 	return (i);
 }
 
-void	execution_flags(t_list **stack_a, t_list **stack_b, t_params *params)
+void	execution_flags(t_list **stack_a, t_list **stack_b, t_flags *flags)
 {
-	int size;
+	t_flagtype	strat;
 
-	size = stack_size(*stack_a);
-	if (params->flagtype == STRAT_SIMPLE && size <= 5)
-	{
+	strat = flags->flagtype;
+
+	if (strat == STRAT_SIMPLE)
 		sort_simple(stack_a, stack_b);
+	else if (strat == STRAT_MEDIUM)
+		sort_medium(stack_a, stack_b);
+	else if (strat == STRAT_COMPLEX)
+		sort_complex(stack_a, stack_b);
+	else
 		return ;
-	}
-	sort_big(stack_a, stack_b);
 }
-/* data */

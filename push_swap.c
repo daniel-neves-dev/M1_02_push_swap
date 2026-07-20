@@ -71,25 +71,36 @@ static int	fill_stack(t_list **stack_a, int argc, char **argv, int arg_start)
 	return (1);
 }
 
+void	push_swap(t_list **stack_a, t_list **stack_b, t_flags *flags)
+{
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return ;
+	if (is_sorted(*stack_a))
+		return ;
+	execution_flags(stack_a, stack_b, flags);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list		*stack_a;
 	t_list		*stack_b;
-	t_params	params;
+	t_flags		flags;
 	int			arg_start;
 
 	if (argc < 2)
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
-	arg_start = parse_flags(argc, argv, &params);
+	arg_start = parse_flags(argc, argv, &flags);
+	if (arg_start >=  argc)
+		return (0);
 	if (fill_stack(&stack_a, argc, argv, arg_start) == 0)
 	{
 		print_error();
 		free_stack(&stack_a);
 		return (1);
 	}
-	push_swap(&stack_a, &stack_b, &params);
+	push_swap(&stack_a, &stack_b, &flags);
 	print_stack("A", stack_a);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
