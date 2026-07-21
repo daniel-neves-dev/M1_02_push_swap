@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+//Radix Sort
 // Encontra o número de bits necessários para representar o maior índice (size - 1)
 static int	get_max_bit(t_list *stack)
 {
@@ -20,6 +20,7 @@ void	sort_complex(t_list **stack_a, t_list **stack_b)
 	int	size;
 	int	max_bits;
 
+	index_stack(*stack_a);
 	size = stack_size(*stack_a);
 	max_bits = get_max_bit(*stack_a);
 	i = 0;
