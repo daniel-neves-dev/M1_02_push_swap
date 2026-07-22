@@ -1,10 +1,11 @@
 #include "push_swap.h"
 
-//Calculo da largura perfeita (bloco/ckunk)
 static int	get_range(int size)
 {
+	if (size <= 20)
+		return (4);
 	if (size <= 100)
-		return (15);
+		return(15);
 	return (35);
 }
 
@@ -72,9 +73,8 @@ void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	sort_big(t_list **stack_a, t_list **stack_b)
+void	sort_medium(t_list **stack_a, t_list **stack_b)
 {
-	index_stack(*stack_a);
 	quick_push_to_b(stack_a, stack_b);
 	push_back_to_a(stack_a, stack_b);
 }

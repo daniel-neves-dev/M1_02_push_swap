@@ -34,6 +34,8 @@ long long ft_atoi(const char *nptr)
 	while (*nptr >= '0' && *nptr <= '9')
 	{
 		result = (result * 10) + (*nptr - '0');
+		if (result * signal > INT_MAX || result * signal < INT_MIN)
+			return (result * signal);
 		nptr++;
 	}
 	return (result * signal);
