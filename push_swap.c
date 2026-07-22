@@ -26,16 +26,18 @@ static int	duplicate_number(t_list *stack, long long n)
 static int	valid_arg(char *arg)
 {
 	long long	n;
+	int			i;
 
-	if (*arg == '-' || *arg == '+')
-		arg++;
-	if (*arg == '\0')
+	i = 0;
+	if (arg[i] == '-' || arg[i] == '+')
+		i++;
+	if (arg[i] == '\0')
 		return (0);
-	while (*arg)
+	while (arg[i])
 	{
-		if (!(*arg >= '0' && *arg <= '9'))
+		if (!(arg[i] >= '0' && arg[i] <= '9'))
 			return (0);
-		arg++;
+		i++;
 	}
 	n = ft_atoi(arg);
 	if (n < INT_MIN || n > INT_MAX)

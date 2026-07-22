@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-#include<stdio.h>
-
 static double	calculate_disorder(t_list *stack)
 {
 	int		mistakes;
@@ -33,25 +31,11 @@ void	sort_adaptive(t_list **stack_a, t_list **stack_b)
 {
 	double	disorder;
 	disorder = calculate_disorder(*stack_a);
-	printf("Disorder Adap: %.2f\n", disorder);
-
-	char	*test;
 
 	if (disorder < 20.0)
-	{
 		sort_simple(stack_a, stack_b);
-		test = "simple";
-	}
 	else if (disorder < 50.0)
-	{
 		sort_medium(stack_a, stack_b);
-		test = "medium";
-	}
 	else
-	{
 		sort_complex(stack_a, stack_b);
-		test = "complex";
-	}
-
-	printf("Flag: %s", test);
 }
