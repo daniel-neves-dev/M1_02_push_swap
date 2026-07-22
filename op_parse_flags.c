@@ -13,12 +13,14 @@ int	parse_flags(int argc, char **argv, t_flags *flags)
 	i = 1;
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		if (ft_strncmp(argv[i], "--simple", sizeof(argv[i])) == 0)
+		if (ft_strncmp(argv[i], "--simple", ft_strlen(argv[i])) == 0)
 			flags->flagtype = STRAT_SIMPLE;
-		else if (ft_strncmp(argv[i], "--medium", sizeof(argv[i])) == 0)
+		else if (ft_strncmp(argv[i], "--medium", ft_strlen(argv[i])) == 0)
 			flags->flagtype = STRAT_MEDIUM;
-		else if (ft_strncmp(argv[i], "--complex", sizeof(argv[i])) == 0)
+		else if (ft_strncmp(argv[i], "--complex", ft_strlen(argv[i])) == 0)
 			flags->flagtype = STRAT_COMPLEX;
+		else if (ft_strncmp(argv[i], "--adaptive", ft_strlen(argv[i])) == 0)
+			flags->flagtype = STRAT_ADAPTIVE;
 		else
 			return (0);
 		i++;
@@ -38,6 +40,8 @@ void	execution_flags(t_list **stack_a, t_list **stack_b, t_flags *flags)
 		sort_medium(stack_a, stack_b);
 	else if (strat == STRAT_COMPLEX)
 		sort_complex(stack_a, stack_b);
+	else if (strat == STRAT_ADAPTIVE)
+		sort_adaptive(stack_a, stack_b);
 	else
 		return ;
 }

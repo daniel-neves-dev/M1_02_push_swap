@@ -77,6 +77,7 @@ void	push_swap(t_list **stack_a, t_list **stack_b, t_flags *flags)
 		return ;
 	if (is_sorted(*stack_a))
 		return ;
+	index_stack(*stack_a);
 	execution_flags(stack_a, stack_b, flags);
 }
 

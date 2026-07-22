@@ -75,7 +75,6 @@ void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 
 void	sort_medium(t_list **stack_a, t_list **stack_b)
 {
-	index_stack(*stack_a);
 	quick_push_to_b(stack_a, stack_b);
 	push_back_to_a(stack_a, stack_b);
 }

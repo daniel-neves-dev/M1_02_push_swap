@@ -46,7 +46,6 @@ int		is_sorted(t_list *stack);
 void	sort_two(t_list **stack_a);
 void	sort_three(t_list **stack_a);
 
-void	sort_big(t_list **stack_a, t_list **stack_b);
 void	move_min_to_b(t_list **stack_a, t_list **stack_b);
 void	index_stack(t_list *stack_a);
 
@@ -56,6 +55,7 @@ void	execution_flags(t_list **stack_a, t_list **stack_b, t_flags *flags);
 void	sort_simple(t_list **stack_a, t_list **stack_b);
 void	sort_medium(t_list **stack_a, t_list **stack_b);
 void	sort_complex(t_list **stack_a, t_list **stack_b);
+void	sort_adaptive(t_list **stack_a, t_list **stack_b);
 
 void	push_swap(t_list **stack_a, t_list **stack_b, t_flags *flags);
 
