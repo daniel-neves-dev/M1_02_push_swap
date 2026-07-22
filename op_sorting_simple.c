@@ -6,6 +6,7 @@ Caso 4: menor, maior, meio -> troca e rotaciona
 Caso 5: meio, maior, menor -> rotação reversa
 se não, Já está ordenado.
 */
+//Selection Sort
 #include "push_swap.h"
 
 int	is_sorted(t_list *stack)
