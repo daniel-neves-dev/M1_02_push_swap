@@ -13,13 +13,13 @@ int	parse_flags(int argc, char **argv, t_flags *flags)
 	i = 1;
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		if (ft_strncmp(argv[i], "--simple", ft_strlen(argv[i])) == 0)
+		if (ft_strncmp(argv[i], "--simple", 8) == 0)
 			flags->flagtype = STRAT_SIMPLE;
-		else if (ft_strncmp(argv[i], "--medium", ft_strlen(argv[i])) == 0)
+		else if (ft_strncmp(argv[i], "--medium", 8) == 0)
 			flags->flagtype = STRAT_MEDIUM;
-		else if (ft_strncmp(argv[i], "--complex", ft_strlen(argv[i])) == 0)
+		else if (ft_strncmp(argv[i], "--complex", 9) == 0)
 			flags->flagtype = STRAT_COMPLEX;
-		else if (ft_strncmp(argv[i], "--adaptive", ft_strlen(argv[i])) == 0)
+		else if (ft_strncmp(argv[i], "--adaptive", 10) == 0)
 			flags->flagtype = STRAT_ADAPTIVE;
 		else
 			return (0);
