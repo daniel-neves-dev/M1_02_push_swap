@@ -1,13 +1,24 @@
-NAME		= push_swap
-SRCS		= \
-			push_swap.c op_swap.c op_rotation.c op_reverse_rotation.c \
-			op_sorting_simple.c op_sorting_medium.c op_sorting_complex.c \
-			op_sorting_adaptive.c op_start_push_swap.c op_print_bench.c \
-			op_calc_disorder.c \
-			op_helpers.c op_utils.c op_indexing.c op_parse_flags.c
+NAME	= push_swap
 
-OBJ_DIR		= obj
-INC_DIR		= .
+# Mapeamento dos arquivos em suas respectivas subpastas
+SRCS		= push_swap.c \
+			flags_bench/op_parse_flags.c \
+			flags_bench/op_print_bench.c \
+			rotatio_swap/op_swap.c \
+			rotatio_swap/op_rotation.c \
+			rotatio_swap/op_reverse_rotation.c \
+			sorting_algoritms/op_sorting_simple.c \
+			sorting_algoritms/op_sorting_medium.c \
+			sorting_algoritms/op_sorting_complex.c \
+			sorting_algoritms/op_sorting_adaptive.c \
+			start/op_start_push_swap.c \
+			utils/op_calc_disorder.c \
+			utils/op_helpers.c \
+			utils/op_indexing.c \
+			utils/op_utils.c \
+
+OBJ_DIR     = obj
+INC_DIR     = .
 
 LIBFT_DIR	= ./libft
 PRINTF_DIR	= ./printf
@@ -33,7 +44,7 @@ $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 $(OBJ_DIR)/%.o: %.c push_swap.h
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
