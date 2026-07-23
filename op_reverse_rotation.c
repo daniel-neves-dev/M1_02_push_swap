@@ -17,7 +17,7 @@ void	rra(t_list **stack_a, t_bench *bench)
 	prev->next = NULL;
 	last->next = *stack_a;
 	*stack_a = last;
-	ft_printf("rra\n");
+	ft_printf(1, "rra\n");
 	if (bench)
 	{
 		bench->rra++;
@@ -42,7 +42,7 @@ void	rrb(t_list **stack_b, t_bench *bench)
 	prev->next = NULL;
 	last->next = *stack_b;
 	*stack_b = last;
-	ft_printf("rrb\n");
+	ft_printf(1 ,"rrb\n");
 	if (bench)
 	{
 		bench->rrb++;
@@ -81,7 +81,7 @@ void	rrr(t_list **stack_a, t_list **stack_b, t_bench *bench)
 		last->next = *stack_b;
 		*stack_b = last;
 	}
-	ft_printf("rrr\n");
+	ft_printf(1 ,"rrr\n");
 	if (bench)
 	{
 		bench->rrr++;

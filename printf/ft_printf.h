@@ -17,13 +17,13 @@
 # include <unistd.h>
 # include <stddef.h>
 
-int		ft_printf(const char *format, ...);
+int		ft_printf(int fd, const char *format, ...);
 int		ft_putchar_fd_pf(char c, int fd);
 int		ft_putstr_fd_pf(char *s, int fd);
 int		ft_putnbr_fd_pf(int n, int fd);
 int		ft_putnbr_uns(unsigned int n, int fd);
 int		ft_putnbr_hex(unsigned int n, char *base);
 int		ft_putnbr_mem(void *n, char *base);
-size_t	ft_conversion(char conv, va_list arg_list);
+size_t	ft_conversion(int fd, char conv, va_list arg_list);
 
 #endif

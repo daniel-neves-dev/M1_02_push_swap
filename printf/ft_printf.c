@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(int fd, const char *format, ...)
 {
 	va_list	arg_list;
 	size_t	i;
@@ -27,12 +27,12 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			count += ft_conversion(format[i + 1], arg_list);
+			count += ft_conversion(fd, format[i + 1], arg_list);
 			i++;
 		}
 		else
 		{
-			ft_putchar_fd_pf(format[i], 1);
+			ft_putchar_fd_pf(format[i], fd);
 			count++;
 		}
 		i++;

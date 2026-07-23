@@ -10,7 +10,7 @@ void	pa(t_list **stack_a, t_list **stack_b, t_bench *bench)
 	*stack_b = first->next;
 	first->next = *stack_a;
 	*stack_a = first;
-	ft_printf("pa\n");
+	ft_printf(1, "pa\n");
 	if (bench)
 	{
 		bench->pa++;
@@ -28,7 +28,7 @@ void	pb(t_list **stack_a, t_list **stack_b, t_bench *bench)
 	*stack_a = first->next;
 	first->next = *stack_b;
 	*stack_b = first;
-	ft_printf("pb\n");
+	ft_printf(1, "pb\n");
 	if (bench)
 	{
 		bench->pb++;
@@ -48,7 +48,7 @@ void	sa(t_list **stack_a, t_bench *bench)
 	first->next = second->next;
 	second->next = first;
 	*stack_a = second;
-	ft_printf("sa\n");
+	ft_printf(1, "sa\n");
 	if (bench)
 	{
 		bench->sa++;
@@ -68,7 +68,7 @@ void	sb(t_list **stack_b, t_bench *bench)
 	first->next = second->next;
 	second->next = first;
 	*stack_b = second;
-	ft_printf("sb\n");
+	ft_printf(1, "sb\n");
 	if (bench)
 	{
 		bench->sb++;
@@ -97,7 +97,7 @@ void	ss(t_list **stack_a, t_list **stack_b, t_bench *bench)
 		second->next = first;
 		*stack_b = second;
 	}
-	ft_printf("ss\n");
+	ft_printf(1, "ss\n");
 	if (bench)
 	{
 		bench->ss++;
