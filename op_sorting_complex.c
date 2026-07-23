@@ -13,7 +13,7 @@ static int	get_max_bit(t_list *stack)
 	return (bit_max);
 }
 
-void	sort_complex(t_list **stack_a, t_list **stack_b)
+void	sort_complex(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
 	int	i;
 	int	j;
@@ -29,13 +29,13 @@ void	sort_complex(t_list **stack_a, t_list **stack_b)
 		while (j < size)
 		{
 			if (((*stack_a)->index >> i & 1) == 0) // se o bit em i for zero empurra para 'b'
-				pb(stack_a, stack_b);
+				pb(stack_a, stack_b, bench);
 			else
-				ra(stack_a);
+				ra(stack_a, bench);
 			j++;
 		}
 		while (*stack_b) // devolve para 'a' para analisar o proximo bit.
-			pa(stack_a, stack_b);
+			pa(stack_a, stack_b, bench);
 		i++;
 	}
 }

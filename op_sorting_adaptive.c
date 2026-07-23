@@ -1,41 +1,14 @@
 #include "push_swap.h"
 
-static double	calculate_disorder(t_list *stack)
-{
-	int		mistakes;
-	int		total_pairs;
-	t_list	*i;
-	t_list	*j;
-
-	mistakes = 0;
-	total_pairs = 0;
-	i = stack;
-	while (i)
-	{
-		j = i->next;
-		while (j)
-		{
-			if (i->index > j->index)
-				mistakes += 1;
-			total_pairs++;
-			j = j->next;
-		}
-		i = i->next;
-	}
-	if (total_pairs == 0)
-		return (0.0);
-	return (((double)mistakes / total_pairs)*100);
-}
-
-void	sort_adaptive(t_list **stack_a, t_list **stack_b)
+void	sort_adaptive(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
 	double	disorder;
 	disorder = calculate_disorder(*stack_a);
 
-	if (disorder < 20.0)
-		sort_simple(stack_a, stack_b);
+	if (disorder < 20.0 || stack_size(*stack_a) < 6)
+		sort_simple(stack_a, stack_b, bench);
 	else if (disorder < 50.0)
-		sort_medium(stack_a, stack_b);
+		sort_medium(stack_a, stack_b, bench);
 	else
-		sort_complex(stack_a, stack_b);
+		sort_complex(stack_a, stack_b, bench);
 }

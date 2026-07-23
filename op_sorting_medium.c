@@ -10,7 +10,7 @@ static int	get_range(int size)
 	return (35);
 }
 
-void	quick_push_to_b(t_list **stack_a, t_list **stack_b)
+void	quick_push_to_b(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
 	int	i;
 	int	range;
@@ -21,18 +21,18 @@ void	quick_push_to_b(t_list **stack_a, t_list **stack_b)
 	{
 		if ((*stack_a)->index <= i)
 		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
+			pb(stack_a, stack_b, bench);
+			rb(stack_b, bench);
 			i++;
 		}
 		else if ((*stack_a)->index <= i + range)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, bench);
 			i++;
 		}
 		else
 		{
-			ra(stack_a);
+			ra(stack_a, bench);
 		}
 	}
 }
@@ -51,7 +51,7 @@ static int	get_max_positio(t_list *stack, int max_index)
 }
 
 //Volta de B para A buscando o maior numero.
-void	push_back_to_a(t_list **stack_a, t_list **stack_b)
+void	push_back_to_a(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
 	int	position_max_index;
 	int	size;
@@ -63,19 +63,19 @@ void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 		if (position_max_index <= size / 2) // Traz o valor ao topo (atalho)
 		{
 			while ((*stack_b)->index != (size - 1))
-				rb(stack_b);
+				rb(stack_b, bench);
 		}
 		else
 		{
 			while ((*stack_b)->index != (size - 1))
-				rrb(stack_b);
+				rrb(stack_b, bench);
 		}
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, bench);
 	}
 }
 
-void	sort_medium(t_list **stack_a, t_list **stack_b)
+void	sort_medium(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
-	quick_push_to_b(stack_a, stack_b);
-	push_back_to_a(stack_a, stack_b);
+	quick_push_to_b(stack_a, stack_b, bench);
+	push_back_to_a(stack_a, stack_b, bench);
 }

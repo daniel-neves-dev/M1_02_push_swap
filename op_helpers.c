@@ -52,7 +52,7 @@ int	get_index(t_list *stack, int value)
 	return (-1);
 }
 
-void	move_min_to_b(t_list **stack_a, t_list **stack_b)
+void	move_min_to_b(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
 	int	min;
 	int	index;
@@ -64,12 +64,12 @@ void	move_min_to_b(t_list **stack_a, t_list **stack_b)
 	if (index <= size / 2)
 	{
 		while (*(int* )(*stack_a)->content != min)
-			ra(stack_a);
+			ra(stack_a, bench);
 	}
 	else
 	{
 		while (*(int* )(*stack_a)->content != min)
-			rra(stack_a);
+			rra(stack_a, bench);
 	}
-	pb(stack_a, stack_b);
+	pb(stack_a, stack_b, bench);
 }

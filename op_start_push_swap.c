@@ -63,10 +63,17 @@ int	fill_stack(t_list **stack_a, int argc, char **argv, int arg_start)
 
 void	push_swap(t_list **stack_a, t_list **stack_b, t_flags *flags)
 {
+	double	disorder;
+	t_bench	bench;
+
+	ft_memset(&bench, 0, sizeof(t_bench));
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
 	if (is_sorted(*stack_a))
 		return ;
 	index_stack(*stack_a);
-	execution_flags(stack_a, stack_b, flags);
+	disorder = calculate_disorder(*stack_a);
+	execution_flags(stack_a, stack_b, flags, &bench);
+	if (flags->bench_mode)
+		print_bench(disorder, flags, &bench);
 }

@@ -21,6 +21,8 @@ int	parse_flags(int argc, char **argv, t_flags *flags)
 			flags->flagtype = STRAT_COMPLEX;
 		else if (ft_strncmp(argv[i], "--adaptive", 10) == 0)
 			flags->flagtype = STRAT_ADAPTIVE;
+		else if (ft_strncmp(argv[i], "--bench", 7) == 0)
+			flags->bench_mode = 1;
 		else
 			return (0);
 		i++;
@@ -28,20 +30,20 @@ int	parse_flags(int argc, char **argv, t_flags *flags)
 	return (i);
 }
 
-void	execution_flags(t_list **stack_a, t_list **stack_b, t_flags *flags)
+void	execution_flags(t_list **stack_a, t_list **stack_b, t_flags *flags, t_bench *bench)
 {
 	t_flagtype	strat;
 
 	strat = flags->flagtype;
 
 	if (strat == STRAT_SIMPLE)
-		sort_simple(stack_a, stack_b);
+		sort_simple(stack_a, stack_b, bench);
 	else if (strat == STRAT_MEDIUM)
-		sort_medium(stack_a, stack_b);
+		sort_medium(stack_a, stack_b, bench);
 	else if (strat == STRAT_COMPLEX)
-		sort_complex(stack_a, stack_b);
+		sort_complex(stack_a, stack_b, bench);
 	else if (strat == STRAT_ADAPTIVE)
-		sort_adaptive(stack_a, stack_b);
+		sort_adaptive(stack_a, stack_b, bench);
 	else
 		return ;
 }

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
 	t_list	*first;
 
@@ -11,9 +11,14 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	first->next = *stack_a;
 	*stack_a = first;
 	ft_printf("pa\n");
+	if (bench)
+	{
+		bench->pa++;
+		bench->total_op++;
+	}
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
 	t_list	*first;
 
@@ -24,9 +29,14 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	first->next = *stack_b;
 	*stack_b = first;
 	ft_printf("pb\n");
+	if (bench)
+	{
+		bench->pb++;
+		bench->total_op++;
+	}
 }
 
-void	sa(t_list **stack_a)
+void	sa(t_list **stack_a, t_bench *bench)
 {
 	t_list	*first;
 	t_list	*second;
@@ -39,9 +49,14 @@ void	sa(t_list **stack_a)
 	second->next = first;
 	*stack_a = second;
 	ft_printf("sa\n");
+	if (bench)
+	{
+		bench->sa++;
+		bench->total_op++;
+	}
 }
 
-void	sb(t_list **stack_b)
+void	sb(t_list **stack_b, t_bench *bench)
 {
 	t_list	*first;
 	t_list	*second;
@@ -54,9 +69,14 @@ void	sb(t_list **stack_b)
 	second->next = first;
 	*stack_b = second;
 	ft_printf("sb\n");
+	if (bench)
+	{
+		bench->sb++;
+		bench->total_op++;
+	}
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b, t_bench *bench)
 {
 	t_list	*first;
 	t_list	*second;
@@ -78,5 +98,9 @@ void	ss(t_list **stack_a, t_list **stack_b)
 		*stack_b = second;
 	}
 	ft_printf("ss\n");
+	if (bench)
+	{
+		bench->ss++;
+		bench->total_op++;
+	}
 }
-

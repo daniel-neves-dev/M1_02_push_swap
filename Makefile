@@ -2,7 +2,8 @@ NAME		= push_swap
 SRCS		= \
 			push_swap.c op_swap.c op_rotation.c op_reverse_rotation.c \
 			op_sorting_simple.c op_sorting_medium.c op_sorting_complex.c \
-			op_sorting_adaptive.c op_fill_stack.c \
+			op_sorting_adaptive.c op_start_push_swap.c op_print_bench.c \
+			op_calc_disorder.c \
 			op_helpers.c op_utils.c op_indexing.c op_parse_flags.c
 
 OBJ_DIR		= obj
