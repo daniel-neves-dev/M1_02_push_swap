@@ -1,16 +1,4 @@
 #include "push_swap.h"
-///DELETAR NO FIM DO PROJETO
-static void	print_stack(char *name, t_list *stack)
-{
-	ft_printf("%s: ", name);
-	while (stack)
-	{
-		ft_printf("%d ", *(int *)stack->content);
-		stack = stack->next;
-	}
-	ft_printf("\n");
-}
-//////
 
 int	main(int argc, char **argv)
 {
@@ -33,7 +21,6 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	push_swap(&stack_a, &stack_b, &flags);
-	print_stack("A", stack_a); ///DELETAR NO FIM DO PROJETO
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
